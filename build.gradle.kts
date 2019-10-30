@@ -25,10 +25,9 @@ dependencies {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
 
-    implementation("mysql:mysql-connector-java:6.0.6")
+    implementation("mysql:mysql-connector-java:8.0.11")
     implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2")
     implementation("io.jsonwebtoken:jjwt:0.9.1")
-
 }
 
 tasks.withType<Test> {
