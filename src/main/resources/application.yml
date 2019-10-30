@@ -1,0 +1,19 @@
+server:
+  port: 8900
+
+# mysql
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/core?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: Ff123456,./
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# mybatis
+mybatis:
+  type-aliases-package: com.lxf.onef.domain
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+    default-statement-timeout: 3000
+    use-generated-keys: true

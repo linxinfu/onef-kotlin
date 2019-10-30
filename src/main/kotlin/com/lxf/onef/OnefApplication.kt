@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class OnefApplication
 
 fun main(args: Array<String>) {
-	runApplication<OnefApplication>(*args)
+    runApplication<OnefApplication>(*args)
 }
