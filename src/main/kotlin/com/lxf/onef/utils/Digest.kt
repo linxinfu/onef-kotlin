@@ -12,15 +12,28 @@ import java.security.MessageDigest
 
 object Digest {
     fun sha256(msg: String): String {
-        var sha256Bin = ByteArray(0)
+        return Encode.bytesToHexString(sha256Byte(msg))
+    }
+
+
+    private fun sha256Byte(msg: String): ByteArray {
         try {
             val sha256 = MessageDigest.getInstance("SHA-256")
             sha256.update(msg.toByteArray())
-            sha256Bin = sha256.digest()
+            return sha256.digest()
         } catch (e: NoSuchAlgorithmException) {
             e.printStackTrace()
         }
+        return ByteArray(0)
+    }
 
-        return Encode.bytesToHexString(sha256Bin)
+    @JvmStatic
+    fun main(args: Array<String>) {
+        var a = "787789787878978984623462364"
+        var b = ByteArray(0)
+        for (i in 0 until 1000) {
+            b = sha256Byte(a)
+        }
+        println(Encode.bytesToHexString(b))
     }
 }

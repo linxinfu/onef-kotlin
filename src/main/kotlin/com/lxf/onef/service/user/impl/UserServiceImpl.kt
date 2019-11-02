@@ -3,7 +3,7 @@ package com.lxf.onef.service.user.impl
 import com.lxf.onef.dao.UserDao
 import com.lxf.onef.entity.User
 import com.lxf.onef.service.user.UserService
-import com.lxf.onef.service.user.common.CommonService
+import com.lxf.onef.service.common.CommonService
 import com.lxf.onef.utils.Digest
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service

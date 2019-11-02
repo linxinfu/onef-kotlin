@@ -1,10 +1,11 @@
-package com.lxf.onef.service.user.common
+package com.lxf.onef.service.common
 
 import com.lxf.onef.utils.SnowFlake
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
+import java.util.*
 
 /**
  * Created by lxf.
@@ -14,6 +15,10 @@ import org.springframework.stereotype.Service
 
 @Service
 class CommonService {
+
+    companion object {
+        const val EXPIRE_TIME = 3 * 24 * 60 * 60 * 1000
+    }
 
     @Value("\${snow-flake.data-center-id}")
     private val dataCenterID: Long = 1
@@ -38,6 +43,7 @@ class CommonService {
      */
     fun signToken(userId: Long): String = Jwts.builder()
             .setSubject(userId.toString())
+            .setExpiration(Date(System.currentTimeMillis() + EXPIRE_TIME))
             .signWith(SignatureAlgorithm.HS512, jwtSalt)
             .compact()
 
